@@ -1,0 +1,56 @@
+.row {
+	color: blue;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+#box{
+	height: 500px;
+	width: 100%;
+	color: red;
+	overflow: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#board{
+	margin: 0 auto;
+	display: inline-block;
+}
+
+.deadCell{
+	width: 15px;
+	height: 15px;
+	float: left;
+	border-style: solid;
+	border-width: 1px;
+	border-color: gray;
+	background-color: white;
+	/*background-color: green;*/
+}
+
+.aliveCell{
+	width: 15px;
+	height: 15px;
+	float: left;
+	border-style: solid;
+	border-width: 1px;
+	border-color: gray;
+	background-color: blue;
+
+}
+
+#buttons{
+	margin: 10px;
+	overflow: auto;
+	text-align: center;
+
+}
+.button{
+	margin: 0 auto;
+	position: relative;
+}
+
+
+
+

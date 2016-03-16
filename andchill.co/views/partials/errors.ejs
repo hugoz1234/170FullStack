@@ -1,0 +1,7 @@
+<!-- views/partials/errors.ejs -->
+
+<% if (locals.errors) { %>
+	<% errors.forEach(function (error) { %>
+		<div class="alert alert-danger"><%= error %></div>
+	<% }); %>
+<% } %>

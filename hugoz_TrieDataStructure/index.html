@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>6.170 Assignment 1: Prefix Match</title>
+  <link rel="stylesheet" href="./index.css" type="text/css" charset="utf-8">
+</head>
+
+<body>
+
+  <input id="search-term-input" type="text" placeholder="Type something...">
+  <ul id="results-list"></ul>
+
+  <script src="./words.js" charset="utf-8"></script>
+  <script src="./controller.js" charset="utf-8"></script>
+  <script src="./trie.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+  	document.addEventListener('DOMContentLoaded', function () {
+
+	  // Instantiate your trie data type here, and load the words 
+	  // in the provided JSON dictionary (accessible as an array
+	  // stored in the variable 'WORDS') into the data structure.
+
+	  // After instantiating and populating your trie above, you need
+	  // to register a listener function to be called after each 
+	  // keypress. The body of the function below will serve this
+	  // purpose -- note that, as a listener, it will be called _each time_
+	  // a keypress occurs. The current value in the search box will be passed 
+	  // in via the argument 'word'. Perform whatever operations are 
+	  // necessary to obtain a list of suggested words from your trie, then 
+	  // populate the drop-down using the provided methods 'clearSearchResults'
+	  // and 'appendToSearchResults'. An example of this is shown 
+	  // below where we simply display the current input along with
+	  // some random words from the dictionary. You'll want to populate
+	  // the list with the desired suggestions instead.
+	  
+	  //var testWords = [ 'hello', 'ello', 'hell', 'hellos', 'ellos'];
+	  var trie = Trie(WORDS);
+	  //var testTrie = Trie(testWords);
+	  //console.log(testTrie.complete('h'));
+
+
+	  CONTROLLER.registerAutocompleteListener(function (word) {
+
+	  	// This function is called on _every_ keypress (that is,
+	  	// change to the search box). Modify this sample with your 
+	    // code to provide autocompletion suggestions.
+
+	  	var NUM_WORDS_TO_SHOW = 10;
+	  	var i;
+	  	var searchResults = trie.complete(word);
+
+	  	CONTROLLER.clearSearchResults();
+
+	  	// Display the current word
+	  	CONTROLLER.appendToSearchResults(word);
+
+	  	// Display some random words
+	  	for (i = 0; i < NUM_WORDS_TO_SHOW; ++i) {
+	  		if(i<searchResults.length){
+	  			CONTROLLER.appendToSearchResults(searchResults[i]);
+	  		}
+	  	}
+	  	
+      });
+
+  	});
+
+  </script>
+</body>
+</html>

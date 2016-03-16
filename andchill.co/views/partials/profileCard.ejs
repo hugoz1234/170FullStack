@@ -1,0 +1,39 @@
+<div class="justified" >
+    <div class="panel panel-default">
+        <div class="panel-heading" align="center">
+            <h1><%= otherChop.profile.name %> </h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <p><strong>Gender: </strong> <%= otherChop.profile.gender %> </p>
+
+                    <p><strong>Interested In: </strong> <%= otherChop.profile.orientation %> </p>
+
+                    <p><strong>Age: </strong> <%= otherChop.profile.age %> </p>
+                    <p><strong>Location: </strong> <%= otherChop.profile.location %> </p>
+                    <p><strong>Bio: </strong> <%= otherChop.profile.bio %> </p>
+                    <p><strong>Movies: </strong>
+                        <% for(var i=0; i< otherChop.profile.favoriteMovies.length; i++) {%>
+                        <span class="label label-info tags"> <%= otherChop.profile.favoriteMovies[i]%> </span>
+                        <% } %>
+                    </p>
+                </div><!--/col-->
+
+                <div class="col-md-7 text-center">
+                    <% var viewUser = otherChop; %>
+                    <% include ../partials/gallery %>
+
+                    <p><strong>Rating: </strong>
+                        <% if (!otherChop.profile.ratings || otherChop.profile.ratings.length == 0) { %>
+                        No ratings available yet for this user
+                        <%} else { %>
+                        <span class="stars" data-id="<%= otherChop._id %>"></span> <small id="detail"></small><br>
+                        <% } %>
+                    </p>
+
+                </div><!--/col-->
+            </div><!--/row-->
+        </div><!--/panel-body-->
+    </div><!--/panel-->
+</div>

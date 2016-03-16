@@ -1,0 +1,114 @@
+<!-- views/pages/home.ejs -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include ../partials/head %>
+	</head>
+	<body>
+		<% include ../partials/nav %>
+		<header>
+			<div class="header-content">
+				<div class="header-content-inner">
+					<h1>How do you chill?</h1>
+					<hr>
+					<p>AndChill makes it easy for you to meet people with interests similar to yours. It's like Tinder for movie lovers.</p>
+					<a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+				</div>
+			</div>
+		</header>
+
+		<section class="bg-primary" id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 text-center">
+						<div>
+							<i class="fa fa-smile-o" style="font-size:5em"></i>
+						</div>
+						<h2>Know What To Do</h2>
+						<p>
+							AndChill matches you with movie interests similar to yours, so you always know what to watch and chill!
+						</p>
+					</div>
+					<div class="col-md-4 text-center">
+						<div>
+							<i class="fa fa-link" style="font-size:5em"></i>
+						</div>
+						<h2>Make a Connection</h2>
+						<p>
+							AndChill doesn't show profile pictures until after matches take place, prioritizing interest over immediate attraction.
+						</p>
+					</div>
+					<div class="col-md-4 text-center">
+						<div>
+							<i class="fa fa-thumbs-o-up" style="font-size:5em"></i>
+						</div>
+						<h2>Totally Free</h2>
+						<p>
+							Movie services are expensive enough, so why should you have to pay for a dating service?
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="testimonials">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading">What People Are Saying</h2>
+						<hr class="primary">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">
+						<img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11698604_10203311373424707_2639049732539364539_n.jpg?oh=a8ceb0c2f39653d08b81e6d4a26b22dc&oe=56B6AEFB" class="img-circle testimonial" alt="Jordan and Dylan">
+					</div>
+					<div class="col-md-10">
+						<br>
+						<blockquote>
+							We were matched on AndChill and immediately fell in love! We've been dating for over a year now. AndChill made our lives so much better!
+							<footer>Jordan and Dylan</footer>
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<br><br>
+						<blockquote class="blockquote-reverse">
+							My girlfriend Emily ignored me for three months before we finally matched on AndChill and watched some Netflix together. Three years later, we're still going strong. This is way better than Tinder!
+							<footer>Emily and John</footer>
+						</blockquote>
+					</div>
+					<div class="col-md-2 text-left">
+						<img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/11150477_10204385330613815_7950364087671162294_n.jpg?oh=bf3fc6475b76a1618e2fc7a1c217877e&oe=56B0452A" class="img-circle testimonial" alt="Emily and John">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">
+						<img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11011289_998049636879420_5447689105418615521_n.jpg?oh=e4781a9bd908ba437291b726e4d8d0f6&oe=56B9FA92" class="img-circle testimonial" alt="Juan and Libby">
+					</div>
+					<div class="col-md-10">
+						<br><br>
+						<blockquote>
+							Well, I was a-mousin' around and found AndChill. Thank God I did, since Libby immediately appeared in front of me and we fell in love. How did they do this??
+							<br>
+							<footer>Juan and Libby</footer>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<aside class="bg-dark">
+			<div class="container text-center">
+				<div class="call-to-action">
+					<h2>Get Chopping Now</h2>
+					<a href="/user/register/" class="btn btn-default btn-xl wow tada">Click Here</a>
+				</div>
+			</div>
+		</aside>
+
+		<% include ../partials/footer %>
+	</body>
+</html>

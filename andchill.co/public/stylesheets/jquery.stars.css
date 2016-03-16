@@ -1,0 +1,29 @@
+/**
+ * Style for displaying stars. See http://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css.
+ */
+
+/* Stars are 15px tall. */
+div.star-container {
+	display: block;
+	height: 15px;
+	padding: 0;
+}
+span.stars, span.stars span {
+	display: block; /* fallback for crappy browsers */
+	display: inline-block;
+	text-align: left;
+	background: url(../../../images/stars.png) 0 -16px repeat-x;
+	width: 80px; /* 16x5 */
+	height: 15px;
+
+	padding: 0;
+	line-height: 15px;
+}
+
+span.stars span {
+	background-position: 0 0px;
+	background-repeat: repeat-x;
+
+	padding: 0;
+	line-height: 15px;
+}

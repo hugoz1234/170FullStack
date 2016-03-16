@@ -1,0 +1,32 @@
+<% if (messages.errors) {%>
+    <div class="alert alert-danger fade in">
+        <button type="button" data-dismiss="alert" class="close">
+            <i class="fa fa-times-circle-o"></i>
+        </button>
+        <% for(var i=0; i < messages.errors.length; i++){%>
+            <div> <%= messages.errors[i].msg%> </div>
+        <%}%>
+    </div>
+<%}%>
+
+<% if (messages.info) {%>
+<div class="alert alert-danger fade in">
+    <button type="button" data-dismiss="alert" class="close">
+        <i class="fa fa-times-circle-o"></i>
+    </button>
+    <% for(var r=0; r < messages.info.length; r++){%>
+        <div> <%= messages.info[r].msg%> </div>
+    <%}%>
+</div>
+<%}%>
+
+<% if (messages.success) {%>
+<div class="alert alert-danger fade in">
+    <button type="button" data-dismiss="alert" class="close">
+        <i class="fa fa-times-circle-o"></i>
+    </button>
+    <% for(var j=0; j < messages.success.length; j++){%>
+        <div> <%= messages.success[j].msg%> </div>
+    <%}%>
+</div>
+<%}%>

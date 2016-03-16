@@ -1,0 +1,30 @@
+<!-- views/pages/home.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+<% include ../partials/nav %>
+<section class="titleSection pageHeader bg-primary" style="margin-bottom: 0px !important;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h1>Profile Information</h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <% include ../partials/flash %>
+    <% var otherChop = viewUser; %>
+    <% include ../partials/profileCard %>
+</div>
+
+<% include ../partials/footer %>
+
+</body>
+</html>
+

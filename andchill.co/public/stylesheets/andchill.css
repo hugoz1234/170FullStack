@@ -1,0 +1,106 @@
+/**
+ * andchill.css: Default styles for AndChill.
+ */
+
+body {
+	margin-top: 50px; /** To make room for our fixed navbar. */
+}
+
+img.testimonial {
+	max-width: 100%;
+}
+
+
+.btn-facebook {
+	background-color: #3b5998;
+	color: #fff;
+	background-color: #3b5998;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook:focus,
+.btn-facebook.focus {
+	color: #fff;
+	background-color: #2d4373;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook:hover {
+	color: #fff;
+	background-color: #2d4373;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook:active,
+.btn-facebook.active,
+.open > .btn-facebook.dropdown-toggle {
+	color: #fff;
+	background-color: #2d4373;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook:active:hover,
+.btn-facebook:active:focus,
+.btn-facebook:active.focus,
+.btn-facebook.active:hover,
+.btn-facebook.active:focus,
+.btn-facebook.active.focus,
+.open > .btn-facebook.dropdown-toggle:hover,
+.open > .btn-facebook.dropdown-toggle:focus,
+.open > .btn-facebook.dropdown-toggle.focus {
+	color: #fff;
+	background-color: #23345a;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook:active,
+.btn-facebook.active,
+.open > .btn-facebook.dropdown-toggle {
+	background-image: none;
+}
+
+.btn-facebook.disabled,
+.btn-facebook.disabled:hover,
+.btn-facebook.disabled:focus,
+.btn-facebook.disabled.focus,
+.btn-facebook.disabled:active,
+.btn-facebook.disabled.active,
+.btn-facebook[disabled],
+.btn-facebook[disabled]:hover,
+.btn-facebook[disabled]:focus,
+.btn-facebook[disabled].focus,
+.btn-facebook[disabled]:active,
+.btn-facebook[disabled].active,
+fieldset[disabled] .btn-facebook,
+fieldset[disabled] .btn-facebook:hover,
+fieldset[disabled] .btn-facebook:focus,
+fieldset[disabled] .btn-facebook.focus,
+fieldset[disabled] .btn-facebook:active,
+fieldset[disabled] .btn-facebook.active {
+	background-color: #3b5998;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook .badge {
+	color: #3b5998;
+	background-color: #fff;
+}
+
+.navbar-nav img {
+	width: 30px;
+	height: 30px;
+	margin: -15px 15px -15px;
+}
+
+.page-header {
+	padding-bottom: 9px;
+	margin: 40px 0 20px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.justified {
+	display: flex;
+	justify-content: center;
+}
+
+

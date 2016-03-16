@@ -1,0 +1,221 @@
+<!-- views/pages/home.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+<% include ../partials/nav %>
+<section class="titleSection pageHeader bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h1>Profile Information</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <% include ../partials/flash %>
+    <form action="account/profile" method="POST" class="form-horizontal">
+        <% if (user.profile.picture) { %>
+        <div class="form-group ">
+            <div class="row">
+                <label for="picture" class="col-sm-3 control-label">Profile Picture</label>
+            </div>
+            <div class="justified"><img src="<%= user.profile.picture %>" class="profile"/></div>
+        </div>
+        <div class="form-group">
+            <div class="justified">
+                <button type="button" class="btn btn btn-primary" data-toggle="modal" data-target="#addCover"><i class="fa fa-pencilr"></i>Change Profile Picture</button>
+            </div>
+        </div>
+        <% } else { %>
+        <div class="form-group">
+            <div class="row">
+                <label for="gravatar" class="col-sm-3 control-label">Profile Picture</label>
+            </div>
+            <div class="justified"><img src="<%= user.gravatar() %>" width="400" height="400" class="profile"/></div>
+        </div>
+        <div class="form-group">
+            <div class="justified">
+                <button type="button" class="btn btn btn-primary" data-toggle="modal" data-target="#addCover"><i class="fa fa-pencilr"></i>Add Profile Picture</button>
+            </div>
+        </div>
+        <% } %>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="pictures" class="col-sm-3 control-label">Pictures</label>
+            </div>
+
+            <div class="justified">
+                <% var viewUser = user; %>
+                <% include ../partials/gallery %>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="justified">
+
+                <button type="button" class="btn btn btn-primary" data-toggle="modal" data-target="#addPicture"><i class="fa fa-pencilr"></i>Add Photo</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-7">
+                <input type="email" name="email" id="email" value="<%= user.email %>" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-7">
+                <input type="text" name="name" id="name" value="<%= user.profile.name %>" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="age" class="col-sm-3 control-label">Age</label>
+            <div class="col-sm-7">
+                <input type="number" name="age" id="age" value="<%= user.profile.age %>" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender" class="col-sm-3 control-label">Identified Gender</label>
+            <div class="col-sm-8">
+                <label class="radio col-sm-3">
+                    <% if (user.profile.gender === "female") { %>
+                    <input type="radio" name="gender" checked value="female" data-toggle="radio"/><span>Female</span>
+                    <% } else { %>
+                    <input type="radio" name="gender" value="female" data-toggle="radio"/><span>Female</span>
+                    <% } %>
+                </label>
+
+                <label class="radio col-sm-3">
+                    <% if (user.profile.gender === "male") { %>
+                    <input type="radio" name="gender" checked value="male" data-toggle="radio"/><span>Male</span>
+                    <% } else { %>
+                    <input type="radio" name="gender" value="male" data-toggle="radio"/><span>Male</span>
+                    <% } %>
+
+                </label>
+
+                <label class="radio col-sm-3">
+                    <% if (user.profile.gender === "trans*") { %>
+                    <input type="radio" name="gender" checked value="trans*" data-toggle="radio"/><span>Trans*</span>
+                    <% } else { %>
+                    <input type="radio" name="gender" value="trans*" data-toggle="radio"/><span>Trans*</span>
+                    <% } %>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="orientation" class="col-sm-3 control-label">Interested In</label>
+            <div class="col-sm-8">
+                <label class="radio col-sm-3">
+                    <% if (user.profile.orientation === "female") { %>
+                    <input type="radio" name="orientation" checked value="female" data-toggle="radio"/><span>Female</span>
+                    <% } else { %>
+                    <input type="radio" name="orientation" value="female" data-toggle="radio"/><span>Female</span>
+                    <% } %>
+                </label>
+
+                <label class="radio col-sm-3">
+                    <% if (user.profile.orientation === "male") { %>
+                    <input type="radio" name="orientation" checked value="male" data-toggle="radio"/><span>Male</span>
+                    <% } else { %>
+                    <input type="radio" name="orientation" value="male" data-toggle="radio"/><span>Male</span>
+                    <% } %>
+
+                </label>
+
+                <label class="radio col-sm-3">
+                    <% if (user.profile.orientation === "trans*") { %>
+                    <input type="radio" name="orientation" checked value="trans*" data-toggle="radio"/><span>Trans*</span>
+                    <% } else { %>
+                    <input type="radio" name="orientation" value="trans*" data-toggle="radio"/><span>Trans*</span>
+                    <% } %>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="location" class="col-sm-3 control-label">Location</label>
+            <div class="col-sm-7">
+                <input type="text" name="location" id="location" value="<%= user.profile.location %>" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="bio" class="col-sm-3 control-label">Bio</label>
+            <div class="col-sm-7">
+                <textarea name="bio" id="bio" class="form-control" rows="5" ><%= user.profile.bio %></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="bio" class="col-sm-3 control-label"> Favorite Movies</label>
+            <div class="col-sm-7">
+                <div id="favorite-movies-editor"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-4">
+                <button type="submit" class="btn btn btn-primary"><i class="fa fa-pencilr"></i>Update Profile</button>
+            </div>
+        </div>
+
+    </form>
+    <div class="page-header">
+        <h3>Change Password</h3>
+    </div>
+    <form action="account/password" method="POST" class="form-horizontal">
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">New Password</label>
+            <div class="col-sm-7">
+                <input type="password" name="password" id="password" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+            <div class="col-sm-7">
+                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-4">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-lock"></i>Change Password</button>
+            </div>
+        </div>
+    </form>
+    <div class="page-header">
+        <h3>Delete Account</h3>
+    </div>
+    <form action="account/delete" method="POST" class="form-horizontal">
+        <div class="form-group">
+            <p class="col-sm-offset-3 col-sm-4">You can delete your account, but keep in mind this action is irreversible.</p>
+            <input type="hidden" name="_csrf"/>
+            <div class="col-sm-offset-3 col-sm-4">
+                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>Delete my account</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<% include ../partials/addPictureModal %>
+<% include ../partials/addCoverModal %>
+
+<% include ../partials/footer %>
+<script src="/javascripts/lib/jquery.taglist.js"></script>
+<script src="/javascripts/profile.js"></script>
+
+</body>
+</html>

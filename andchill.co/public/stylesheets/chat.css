@@ -1,0 +1,22 @@
+/**
+ * stylesheets/chat.css: Styles for AndChill chat between users.
+ */
+
+div#chat-area {
+	max-height: 450px;
+	border: 1px solid gray;
+	overflow-y: scroll;
+	padding: 15px;
+}
+
+div#chat-area .message {
+	padding-bottom: 10px;
+}
+
+div#chat-area .message .message-title {
+	font-weight: bold;
+}
+
+#chat-text {
+	
+}

@@ -1,0 +1,14 @@
+<!-- views/partials/message.ejs -->
+
+<div class="message" data-message-id="<%= message._id %>">
+	<div class="message-title">
+		<% if (!message.user.profile || !message.user.profile.name) { %>
+		<%=  message.user.email %>
+		<% } else { %>
+		<%= message.user.profile.name %>
+		<% } %>
+	</div>
+	<div class="message-content">
+		<%= message.content %>
+	</div>
+</div>

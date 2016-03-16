@@ -1,0 +1,25 @@
+<!-- views/partials/addPictureModal.ejs -->
+
+<div id="addCover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header headerText">Change Profile Picture
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body modalBody">
+                <div class="title-input-container">
+                    <div class="title-wrapper ui-clearfix">
+                    </div>
+                </div>
+                <div class="justified">
+                    <form action="/user/uploadCover" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                        <p>Select a file:</p>
+                        <input type="file" name="image" data-id="undefined"/>
+                        <br><br>
+                        <button id="cstep" type="submit" class="sg-btn sg-btn-orange sg-btn-s9">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

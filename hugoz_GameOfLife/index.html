@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 6.170 Project 2: </title>
+  <link rel="stylesheet" href="./board.css" type="text/css" charset="utf-8">
+
+</head>
+
+<body background="jackson.jpg">
+	<h1 align="center"> Hugo's Game of Life</h1>
+	<div id="buttons">
+		<button onclick="start()" class="button">Start</button>
+		<button onclick="stop()" class="button">Stop</button>
+		<button onclick="erase()" class="button">Clear</button>
+		<select class="button" id="selectBox" onchange="startState()">
+			<option selected>Start State</option>
+			<option value="criss cross">Criss Cross</option>
+			<option value="checker" >Checker Board</option>
+			<option value="pent">Pentadecathlon </option>
+		</select>
+	</div>
+	<div id="box" ></div>
+
+	<script src="./model.js" charset="utf-8" type="text/javascript"></script>
+	<script src="./controller.js" charset="utf-8" type"text/javascript"></script>
+	<script src= "./board.js" charset="utf-8" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+
+	</script>
+
+
+</body>
+
+</html>
+
+
+

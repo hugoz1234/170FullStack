@@ -1,0 +1,59 @@
+<!-- views/pages/chops.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../partials/head %>
+</head>
+<body>
+<% include ../partials/nav %>
+<section class="titleSection pageHeader bg-primary" style="margin-bottom: 0px !important;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<h1>Chops</h1>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container-fluid">
+	<div class="row row-offcanvas row-offcanvas-left">
+		<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="/chops/">Find Matches</a></li>
+				<li><a href="/chops/accepted/">My Matches</a></li>
+			</ul>
+		</div><!--/span-->
+
+		<div class="col-sm-8 col-md-9 main">
+			<div class="container" style="margin-top: 20px;">
+				<div class="col-md-10" id="chat-box" align="center">
+					<% if (hasChop) {
+						var otherChop = (chop.users[0].user._id.toString() === user._id.toString()) ? chop.users[1].user : chop.users[0].user %>
+
+					<% include ../partials/profileCard %>
+
+					<p> Based on your movie interests we think you'd both enjoy watching:
+						<% suggestions.forEach(function (suggestion) { %>
+							<div><%= suggestion %></div>
+						<% }); %>
+					</p>
+
+					<button type="button" class="btn btn-success" id="accept-chop" data-id="<%= chop._id %>">Accept</button>
+					<button type="button" class="btn btn-danger" id="reject-chop" data-id="<%= chop._id %>">Reject</button>
+					<% } else { %>
+					<p class="lead">
+						No chops are currently available. Please check again later.
+					</p>
+					<% } %>
+				</div>
+			</div>
+
+		</div><!--/row-->
+	</div>
+</div><!--/.container-->
+
+<% include ../partials/footer %>
+<script src="/javascripts/chop.js"></script>
+</body>
+</html>

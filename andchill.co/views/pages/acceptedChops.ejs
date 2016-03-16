@@ -1,0 +1,119 @@
+<!-- views/pages/acceptedChops.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../partials/head %>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/chat.css">
+</head>
+<body>
+<% include ../partials/nav %>
+<section class="titleSection pageHeader bg-primary" style="margin-bottom: 0px !important;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<h1>My Matches</h1>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container-fluid">
+	<div class="row row-offcanvas row-offcanvas-left">
+		<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="/chops/">Find Matches</a></li>
+				<li><a href="/chops/accepted/">My Matches</a></li>
+			</ul>
+		</div><!--/span-->
+
+		<div class="container-fluid">
+			<div class="row row-offcanvas row-offcanvas-left">
+				<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+					<ul class="nav nav-sidebar">
+						<li><a class="sideTitle"><strong>Matches:</strong> </a></li>
+
+						<% chops.forEach(function (chop) { %>
+						<li> <a href="/chops/accepted/<%= chop._id %>/">
+								<% if (!chop.user.profile || !chop.user.profile.name) { %>
+								<%=  chop.user.email %>
+								<% } else { %>
+								<%= chop.user.profile.name %>
+								<% } %>
+							</a></li>
+						<% }); %>
+						<% if (chops.length === 0) { %>
+						<li><a class="sideItem"> None yet! </a></li>
+
+						<% } %>
+
+					</ul>
+				</div><!--/span-->
+
+				<div class="col-sm-6 col-md-7 main">
+					<div class="container">
+						<div class="col-md-8" id="chat-box">
+							<% if (chatMode) { %>
+							<h2>
+								<% if (otherUser.profile.picture) { %>
+								<img width="200" height="200" src="<%= otherUser.profile.picture %>">
+								<% } else { %>
+								<img width="200" height="200" src="<%= otherUser.gravatar %>">
+								<% } %>
+								<a href="/user/viewProfile/<%=  otherUser.id %>/" > <%= otherUser.profile.name || otherUser.email %> </a>
+								<br>
+							</h2>
+
+							<% if (!currentUser.profile.ratedUsers || currentUser.profile.ratedUsers.indexOf(otherUser.email)==-1){ %>
+
+							<div class="notRated">
+								<script src="/javascripts/lib/jquery.combostars.js"></script>
+								<script src="/javascripts/lib/submitRating.js"></script>
+								Rate this user:
+
+								<select id="combostar">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+								<button class="btn btn-primary btn-sm" id="submit-rating" data-id="<%= otherUser._id %>" data-current="<%= currentUser._id %>" data-email="<%= otherUser.email%>">Submit Rating</button>
+							</div>
+							<% } %>
+                        
+                            
+                            You guys would love watching these:
+                                <div><%= suggestions %> </div>
+                            
+                            
+							<script src="/javascripts/chat.js"></script>
+
+							<div id="chat-area">
+							</div>
+
+							<br>
+							<textarea class="form-control" id="chat-text" placeholder="Type a message here..."></textarea>
+							<br>
+							<button data-chat-id="<%= chat._id %>" id="chat-send" class="btn btn-primary btn-block">Send Message</button>
+							<% } else if (!chatMode && chops.length > 0) { %>
+							<h2> Click one of the matches on the left to enter a chat! </h2>
+							<% } else { %>
+							<h2> No matches yet. You'll make friends soon... </h2>
+							<% } %>
+						</div>
+					</div>
+				</div><!--/row-->
+
+			</div>
+		</div>
+
+
+
+	</div>
+</div><!--/.container-->
+
+
+<% include ../partials/footer %>
+<script src="/javascripts/chop.js"></script>
+</body>
+</html>
