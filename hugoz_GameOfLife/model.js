@@ -11,14 +11,13 @@ var Model = function(height,width){
 	that.cellData = [];
 	that.subscribers =[];
 
-
 	//initializes 2D Array, represents all the cells
 	var times = function (i, f) {
 		if (i === 0) return;
-		f(); times (i-1, f)
+		f(); times(i-1, f)
 	}
 
-	times (height, function () {
+	times(height, function() {
   		var col = [];
 		that.cellData.push (col);
 		times (width, function () {
@@ -108,9 +107,7 @@ var Model = function(height,width){
 			}else if(livingCells===3){
 				return true;
 			}
-
 			return false;
-			
 		}
 
 		var newCellData = [];
@@ -128,10 +125,7 @@ var Model = function(height,width){
 			})
 		});
 
-
-
 		that.cellData = newCellData;
-
 		return that.cellData;
 	}
 
@@ -140,11 +134,6 @@ var Model = function(height,width){
 		that.subscribers.push(that.update);
 		return that.subscribers;
 	}
-
-
-
-
-
 
 	Object.seal(that);
 	return that;

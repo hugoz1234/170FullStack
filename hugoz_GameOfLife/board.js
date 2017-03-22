@@ -48,22 +48,16 @@ var Board = function(boardHeight, boardWidth){
 	that.container.setAttribute("id", "board");
 	that.rows = [];
 
-	/*In order to set up the board with Rows and Cells I found two nested for loops to be the best way to perform repreated
-		operations since multiple function calls are made at each iteration. 
-	*/
 	for(var i=0; i<boardHeight; i++){
 		var row = new Row(i);
 		row.div.setAttribute("id", String("row"+i));
-
 		for(var j=0;j<boardWidth;j++){
 			var cell = new Cell(i,j);
 			row.cells.push(cell);
 			row.div.appendChild(cell.div);
 		}
-
 		that.rows.push(row);
 		that.container.appendChild(row.div);
-
 	}
 
 	var box = document.getElementById("box");
@@ -72,10 +66,8 @@ var Board = function(boardHeight, boardWidth){
 		box.appendChild(that.container);
 	}
 
-
 	//updates the view for every iteration given new cell data
 	that.update = function(newCellData){
-
 		newCellData.forEach(function (row, rowNum, data){
 			row.forEach(function (isAlive, column, array){
 				if(isAlive!== that.rows[rowNum].cells[column].isAlive){
@@ -145,7 +137,7 @@ var Board = function(boardHeight, boardWidth){
 
 
 //Dimensions of board are coded in the following two lines
-var height =25;
+var height = 25;
 var width = 25;
 
 //View and Controller instances
@@ -165,14 +157,14 @@ var start = function(){
 
 var stop = function(){
 	clearInterval(interval);
-	hasNotStarted= true;
+	hasNotStarted = true;
 }
 
 var erase = function(){
 	clearInterval(interval);
 	board.clear();
 	controller.clear();
-	hasNotStarted=true;
+	hasNotStarted = true;
 }
 
 var startState = function(){

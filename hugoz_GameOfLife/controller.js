@@ -3,15 +3,13 @@
 var Controller = function(board, boardHeight, boardWidth){
 	var that = Object.create(Controller.prototype);
 
-	var model = new Model(boardHeight,boardWidth);
-	that.model = model;
+	that.model = new Model(boardHeight,boardWidth);
 	that.board = board;
 
 	//function to flip color of cell on click
 	that.flipColor = function (cell, x,y){
 		cell.flip();
 		that.model.flip(x,y);
-
 	}
 
 	//method called for every iteration of the Game
@@ -38,7 +36,7 @@ var Controller = function(board, boardHeight, boardWidth){
 
 	//updates model to reflect preset startstates
 	that.startState = function(selectedValue){
-		if(selectedValue==="criss cross"){
+		if(selectedValue === "criss cross"){
 			var start = 0;
 			var end = model.width-1;
 			that.model.cellData.forEach(function(row, index, data){
@@ -47,7 +45,7 @@ var Controller = function(board, boardHeight, boardWidth){
 				start++;
 				end--;
 			});
-		}else if(selectedValue==="checker"){
+		}else if(selectedValue === "checker"){
 			that.model.cellData.forEach(function(row, rowIndex, data){
 				row.forEach(function(isAlive, column, array){
 					if(rowIndex%2===0 && column%2===0){
@@ -57,7 +55,7 @@ var Controller = function(board, boardHeight, boardWidth){
 					}
 				})
 			});
-		}else if(selectedValue==="pent"){
+		}else if(selectedValue === "pent"){
 			that.model.cellData.forEach(function(row,rowindex,data){
 				row.forEach(function(isAlive, column,array){
 					if(rowindex>=8 && rowindex<=15 && column>=11 && column<=13){
